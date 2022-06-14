@@ -1,0 +1,47 @@
+﻿@using ticariotomasyon.Models.siniflar;
+@model List<urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("Index", "urun", FormMethod.Get))
+            {
+                <p>
+                    Ürün Adı: @Html.TextBox("p")
+                    <input type="submit" value="Ara"/>
+                </p>
+            }
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>Alış fiyatı</th>
+        <th>Satış fiyatı</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+<tr>
+    <td>@u.urunAD</td>
+    <td>@u.marka</td>
+    <td>@u.stok</td>
+    <td>@u.alisfiyat ₺</td>
+    <td>@u.satisfiyat ₺</td>
+    <td>@u.kategori.kategoriAD</td>
+    <td>
+        <a href="/urun/urunsil/@u.urunID" class="btn btn-danger">Sil</a>
+    </td>
+    <td>
+        <a href="/urun/urungetir/@u.urunID" class="btn btn-success">Güncelle</a>
+    </td>
+</tr>
+        }
+</table>
+<a href="/urun/yeniurun/"class="btn btn-info">Yeni urun</a>
+

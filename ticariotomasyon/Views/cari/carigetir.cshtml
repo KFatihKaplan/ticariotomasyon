@@ -1,0 +1,32 @@
+﻿@model ticariotomasyon.Models.siniflar.cariler
+
+@{
+    ViewBag.Title = "carigetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("cariguncelle", "cari", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.cariid)
+    @Html.LabelFor(x => x.cariad)
+    @Html.TextBoxFor(x => x.cariad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.cariad,"", new { @style = "color:red" })
+    <br />,
+    @Html.LabelFor(x => x.carisoyad)
+    @Html.TextBoxFor(x => x.carisoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.carisoyad,"", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.carisehir)
+    @Html.TextBoxFor(x => x.carisehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.cariMail)
+    @Html.TextBoxFor(x => x.cariMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+</div>
+}
+

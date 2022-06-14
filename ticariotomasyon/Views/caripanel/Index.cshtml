@@ -1,0 +1,29 @@
+﻿@model ticariotomasyon.Models.siniflar.cariler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CarilayoutView.cshtml";
+}
+<br />
+<h2>Profilim</h2>
+@using(Html.BeginForm("Index2","caripanel",FormMethod.Post))
+            {
+<table class="table table-bordered">
+    <tr>
+        <td> <label>Mail Adresi:@HttpContext.Current.User.Identity.Name</label></td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.cariad, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.carisoyad, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.carisehir, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.sifre, new { @class = "form-control" })</td>
+    </tr>
+</table>
+        <button class ="btn btn-warning">Bilgilerimi güncelle</button>
+            }
+

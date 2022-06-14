@@ -1,0 +1,30 @@
+﻿@model ticariotomasyon.Models.siniflar.personel
+@{
+    ViewBag.Title = "personelgetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("personelguncelle", "personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.personelid)
+    @Html.LabelFor(x => x.personelad)
+    @Html.TextBoxFor(x => x.personelad, new { @class = "form-control" })
+    <br />,
+    @Html.LabelFor(x => x.personelsoyad)
+    @Html.TextBoxFor(x => x.personelsoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.personelgorsel)
+    <input type="file"name="personelgorsel" />
+    <br />
+    @Html.LabelFor(x => x.departman)
+    @Html.DropDownListFor(x => x.departmanid, (List<SelectListItem>)ViewBag.dgr1, new
+   { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+</div>
+}
+

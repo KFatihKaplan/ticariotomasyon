@@ -1,0 +1,38 @@
+﻿@using ticariotomasyon.Models.siniflar
+@model List<satishareket>
+    @{
+        ViewBag.Title = "satisdetay";
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    }
+    <br />
+    <h2>Satış Detayı</h2>
+    <br />
+    <table class=" table table-condensed">
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.satisid</td>
+                <td>@x.urun.urunAD</td>
+                <td>@x.cariler.cariad @x.cariler.carisoyad</td>
+                <td>@x.personel.personelad @x.personel.personelsoyad</td>
+                <td>@x.fiyat</td>
+                <td>@x.adet</td>
+                <td>@x.ttutar</td>
+                <td>@x.tarih</td>
+            </tr>
+        }
+    </table>
+<button class="btn btn-default" style="background-color:dodgerblue">Yazdır</button>
+
+
+

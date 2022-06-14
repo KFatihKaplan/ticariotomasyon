@@ -1,0 +1,68 @@
+﻿@using ticariotomasyon.Models.siniflar
+@model List<faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>Seri Sıra No</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Toplam </th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+        <th>Yeni Kalem</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <div>
+            <td> @k.faturaSeriNo @k.faturaSıraNo</td>
+            <td> @k.faturatarih </td>
+            <td> @k.saat </td>
+            <td> @k.toplam ₺</td>
+            <td><a href="/fatura/faturagetir/@k.faturaid" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/fatura/faturadetay/@k.faturaid" class="btn btn-success">Detaylar</a></td>
+            <td><a href="/fatura/faturadetay/@k.faturaid" class="btn btn-danger">  Kalem</a></td>
+        </tr>
+    }
+</table>
+<a href="/fatura/faturaekle" class="btn btn-info">Yeni Fatura Girişi</a>
+
+<br/> 
+<br/>
+<button type="button" class="btn btn-primary" style="background-color:#ff0000"; data-toggle="modal" data-target="#modal1"> Popup Penceresi</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">PopUp Dialog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered" >
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>tutar</td>
+                    </tr>
+                    @foreach (var x in Model)
+                    { 
+                        <tr>
+                            <td>@x.faturaSeriNo</td>
+                            <td>@x.faturaSıraNo</td>
+                            <td>@x.toplam</td>
+                   
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger"data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

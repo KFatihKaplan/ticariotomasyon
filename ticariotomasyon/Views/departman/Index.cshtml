@@ -1,0 +1,35 @@
+﻿@using ticariotomasyon.Models.siniflar
+@model List<departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>ID</th>
+        <th>Departman Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+<tr>
+    <div>
+    <td>
+        @k.departmanid
+    </td></div>
+    <td>
+        @k.departmanad
+    </td>
+    <td><a href="/departman/departmansil/@k.departmanid" class="btn btn-danger">Sil</a></td>
+    <td><a href="/departman/departmangetir/@k.departmanid" class="btn btn-warning">Güncelle</a></td>
+    <td><a href="/departman/departmandetay/@k.departmanid" class="btn btn-success">Detaylar</a></td>
+</tr>
+    }
+</table>
+<a href="/departman/departmanekle" class="btn btn-info">Departman Ekle</a>
+
+

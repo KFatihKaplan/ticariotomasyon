@@ -1,0 +1,37 @@
+﻿@using ticariotomasyon.Models.siniflar
+@model List<cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Cari ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.cariid</td>
+            <td>@x.cariad</td>
+            <td>@x.carisoyad</td>
+            <td>@x.carisehir</td>
+            <td>@x.cariMail</td>
+            <td><a href="/cari/carisil/@x.cariid" class="btn btn-danger">Sil</a></td>
+            <td><a href="/cari/carigetir/@x.cariid" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/cari/musterisatis/@x.cariid" class="btn btn-default" style="background-color:lightcoral">Satış Geçmişi</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href  ="/cari/yenicari/"class="btn btn-info" >Yeni Cari Ekle</a>
+

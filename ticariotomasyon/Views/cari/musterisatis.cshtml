@@ -1,0 +1,36 @@
+﻿@using ticariotomasyon.Models.siniflar
+@model List<satishareket>
+@{
+    ViewBag.Title = "musterisatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cari Adı: @ViewBag.cari</li>
+</ol>
+<table class=" table table-condensed">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.satisid</td>
+            <td>@x.urun.urunAD</td>
+            <td>@x.personel.personelad @x.personel.personelsoyad</td>
+            <td>@x.fiyat</td>
+            <td>@x.adet</td>
+            <td>@x.ttutar</td>
+            <td>@x.tarih</td>
+            <td> <a href="#" class="btn btn-default" style="background-color:dodgerblue">Yazdır</a></td>
+        </tr>
+    }
+</table>
+
